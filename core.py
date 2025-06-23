@@ -12,10 +12,10 @@ class NpEncoder(json.JSONEncoder):
             return obj.tolist()
         return super(NpEncoder, self).default(obj)
 
-ipl_matches = "IPL_Matches_2008_2022-IPL_Matches_2008_2022.csv"
+ipl_matches = "IPL_Matches_2008_2022_IPL_Matches_2008_2022.csv"
 matches = pd.read_csv(ipl_matches)
 
-ipl_ball = "IPL_Ball_by_Ball_2008_2022-IPL_Ball_by_Ball_2008_2022.csv"
+ipl_ball = "IPL_Ball_by_Ball_2008_2022_IPL_Ball_by_Ball_2008_2022.csv"
 balls = pd.read_csv(ipl_ball)
 
 ball_withmatch = balls.merge(matches, on='ID', how='inner').copy()
