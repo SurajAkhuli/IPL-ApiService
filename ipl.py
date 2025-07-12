@@ -4,7 +4,7 @@ import numpy as np
 ipl_matches = "IPL_Matches_2008_2022_IPL_Matches_2008_2022.csv"
 matches = pd.read_csv(ipl_matches)
 
-print(matches.head())
+# print(matches.head())
 
 def teamsAPI():
     teams = list(set(list(matches['Team1']) + list(matches['Team2'])))

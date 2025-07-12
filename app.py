@@ -19,7 +19,7 @@ def teamvteam():
     team2 = request.args.get('team2')
 
     response = ipl.teamVteamAPI(team1,team2)
-    print(response)
+    # print(response)
     return jsonify(response)
 
 @app.route('/api/team-record')
@@ -40,5 +40,12 @@ def bowling_record():
     response = core.bowlerAPI(bowler_name)
     return response
 
+@app.route('/api/all-batsmen')
+def all_batsmen():
+    return core.allBatsmen()
+
+@app.route('/api/all-bowlers')
+def all_bowlers():
+    return core.allBowlers()
 
 app.run(debug=True)

@@ -69,7 +69,7 @@ def batsmanRecord(batsman, df):
     df = df[df['batter'] == batsman]
     inngs = df.ID.unique().shape[0]
     runs = df.batsman_run.sum()
-    fours = df[(df.batsman_run == 4) & (df.non_boundary == 0)].shape[0]
+    fours = df[(df.batsman_run == 4) & (df.non_boundary == 0)].shape[0]    # not from running or overthrows
     sixes = df[(df.batsman_run == 6) & (df.non_boundary == 0)].shape[0]
     if out:
         avg = runs / out
@@ -216,4 +216,11 @@ def bowlerAPI(bowler, balls=bowler_data):
     }
     return json.dumps(data, cls=NpEncoder)
 
+def allBatsmen():
+    names = sorted(batter_data['batter'].dropna().unique().tolist())
+    return json.dumps({'batsmen': names}, cls=NpEncoder)
+
+def allBowlers():
+    names = sorted(bowler_data['bowler'].dropna().unique().tolist())
+    return json.dumps({'bowlers': names}, cls=NpEncoder)
 
